@@ -1,0 +1,9 @@
+[Unit]
+Description=Update message of the day
+
+[Path]
+PathChanged=/usr/lib/motd.d/
+PathChanged=/etc/motd.d/
+
+[Install]
+WantedBy=multi-user.target

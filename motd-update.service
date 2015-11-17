@@ -1,0 +1,11 @@
+[Unit]
+Description=Update message of the day
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/motd-update.sh
+
+[Install]
+Also=motd-update.path
+WantedBy=multi-user.target
+
