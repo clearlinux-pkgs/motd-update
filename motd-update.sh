@@ -16,7 +16,7 @@ if [ -d /etc/motd.d ]; then
 fi
 
 if mv -f /run/motd.temp /run/motd; then
-	cat /run/motd.temp
+	cat /run/motd
 	exit 0
 else
         echo "ERROR: could not install new MOTD" 1>&2
