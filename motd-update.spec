@@ -22,7 +22,7 @@ install -d -m 0755 %{buildroot}/etc/motd.d
 
 install -d -m 0755 %{buildroot}/usr/lib/systemd/system
 install -d -m 0755 %{buildroot}%{_bindir}
-install -m  0744 %{SOURCE0} %{buildroot}%{_bindir}/motd-update.sh
+install -m  0755 %{SOURCE0} %{buildroot}%{_bindir}/motd-update.sh
 install -m  0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/motd-update.service
 install -m  0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/motd-update.path
 
