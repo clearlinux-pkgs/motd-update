@@ -15,6 +15,11 @@ if [ -d /etc/motd.d ]; then
 	cat /etc/motd.d/* >> /run/motd.temp 2>/dev/null;
 fi
 
+# Nothing to be done
+if [ ! -e /run/motd.temp ]; then
+    exit 0
+fi
+
 if mv -f /run/motd.temp /run/motd; then
 	cat /run/motd
 	exit 0
