@@ -4,6 +4,7 @@ Description=Update message of the day
 [Path]
 PathChanged=/usr/lib/motd.d/
 PathChanged=/etc/motd.d/
+Unit=motd-trigger.service
 
 [Install]
 WantedBy=multi-user.target
