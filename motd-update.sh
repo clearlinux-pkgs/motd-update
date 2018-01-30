@@ -1,18 +1,22 @@
 #!/bin/sh
 
 if ! touch /run/motd.temp 2>/dev/null; then
-	echo "Permission denied. Try sudo" 1>&2;
-	exit 1;
+	echo "ERROR: Permission denied. Try sudo" 1>&2
+	exit 1
 fi
 
-rm -rf /run/motd.temp 2>/dev/null;
+rm -f /run/motd.temp
 
 if [ -d /usr/lib/motd.d ]; then
-	cat /usr/lib/motd.d/* > /run/motd.temp 2>/dev/null;
+	cat /usr/lib/motd.d/* > /run/motd.temp 2>/dev/null
+fi
+
+if [ -d /run/motd.d ]; then
+	cat /run/motd.d/* >> /run/motd.temp 2>/dev/null
 fi
 
 if [ -d /etc/motd.d ]; then
-	cat /etc/motd.d/* >> /run/motd.temp 2>/dev/null;
+	cat /etc/motd.d/* >> /run/motd.temp 2>/dev/null
 fi
 
 # Nothing to be done
