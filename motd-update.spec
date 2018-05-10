@@ -1,6 +1,6 @@
 Name     : motd-update
 Version  : 1
-Release  : 12
+Release  : 13
 Source0  : motd-update.sh
 Source1  : motd-trigger.service
 Source2  : motd-update.path
