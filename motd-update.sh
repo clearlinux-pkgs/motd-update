@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo "Usage: $0"
+	echo "    Create new motd files for display at login. This program"
+	echo "    has no parameters or options."
+	exit 0
+fi
+
 if ! touch /run/motd.temp 2>/dev/null; then
 	echo "ERROR: Permission denied. Try sudo" 1>&2
 	exit 1
@@ -21,14 +28,14 @@ fi
 
 # Nothing to be done
 if [ ! -e /run/motd.temp ]; then
-    exit 0
+	exit 0
 fi
 
 if mv -f /run/motd.temp /run/motd; then
 	cat /run/motd
 	exit 0
 else
-        echo "ERROR: could not install new MOTD" 1>&2
-        exit 1
+	echo "ERROR: could not install new MOTD" 1>&2
+	exit 1
 fi
 
